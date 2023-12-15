@@ -18,7 +18,9 @@ const options: Configuration = merge({
     path: resolve("..", "dist/server"),
     filename: "js/[name].js",
     chunkFilename: "js/[id].js",
-    publicPath: "/"
+    publicPath: "/",
+    chunkLoadingGlobal: "lh-host",
+    globalObject: "window"
   },
   module: {
     rules: [

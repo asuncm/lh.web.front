@@ -3,24 +3,26 @@ import { FC, Suspense, lazy, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { Routes, Route, Location, useLocation, useNavigate, NavigateFunction } from 'react-router-dom'
 
-import { RootProivder, RootState } from '../hooks/root/atom'
+import { RootProivder, RootState } from '@hook/root/atom'
 import { LocaleData } from 'typings/module/local'
 import dayjs from 'dayjs'
 import zhCN from 'antd/locale/zh_CN'
 import enUS from 'antd/locale/en_US'
 import zhHK from 'antd/locale/zh_HK'
 
-const Loading = lazy(() => import('../layout/welcome/loading'))
-const Welcome = lazy(() => import('../pages/welcome'))
-const ErrorRouter = lazy(() => import('../pages/error/error.router'))
-const LhRouter = lazy(() => import('../pages/lh/lh.router'))
-const RegisterRouter = lazy(() => import('../pages/register/register.router'))
+const Loading = lazy(() => import('@/layout/welcome/loading'))
+const HomeComponent = lazy(() => import('@page/home'))
+const SchemeComponent = lazy(() => import('@page/scheme'))
+const ShopComponent = lazy(() => import('@page/shop'))
+const DemandComponent = lazy(() => import('@page/demand'))
+const AboutComponent = lazy(() => import('@page/about'))
 
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/zh-hk'
 import 'dayjs/locale/en'
 
 const RootRouter: FC = () => {
+    const win: any = window
     const config: LocaleData = {
         'zh-cn': zhCN,
         'en': enUS,
@@ -28,29 +30,40 @@ const RootRouter: FC = () => {
     }
     const route: Location = useLocation()
     const history: NavigateFunction = useNavigate()
-    const [state] = useRecoilState<RootState>(RootProivder)
+    const [state, setState] = useRecoilState<RootState>(RootProivder)
     useEffect(() => {
         if (route.pathname === '/') {
-            history({ pathname: '/welcome' })
+            history({ pathname: '/home' })
+        }
+        setState(win.microApp.getGlobalData())
+        win.microApp.addGlobalDataListener(dataListener)
+        return () => {
+            win.microApp.removeGlobalDataListener(dataListener)
         }
     }, [])
-     useEffect(() => {
+    useEffect(() => {
         dayjs(state.locale)
     }, [state])
+    const dataListener = (data: RootState) => {
+        setState(data)
+    }
     return (<ConfigProvider locale={config[state.locale]}>
         <Routes>
             <Route path='/*'>
-                <Route path='welcome' element={<Suspense fallback={<Loading />}>
-                    <Welcome />
+                <Route path='home' element={<Suspense fallback={<Loading />}>
+                    <HomeComponent />
                 </Suspense>} />
-                <Route path='lh' element={<Suspense fallback={<Loading />}>
-                    <ErrorRouter />
+                <Route path='scheme' element={<Suspense fallback={<Loading />}>
+                    <SchemeComponent />
                 </Suspense>} />
-                <Route path='register' element={<Suspense fallback={<Loading />}>
-                    <LhRouter />
+                <Route path='shop' element={<Suspense fallback={<Loading />}>
+                    <ShopComponent />
                 </Suspense>} />
-                <Route path='error' element={<Suspense fallback={<Loading />}>
-                    <RegisterRouter />
+                <Route path='demand' element={<Suspense fallback={<Loading />}>
+                    <DemandComponent />
+                </Suspense>} />
+                <Route path='about' element={<Suspense fallback={<Loading />}>
+                    <AboutComponent />
                 </Suspense>} />
             </Route>
         </Routes>

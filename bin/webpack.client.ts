@@ -1,7 +1,7 @@
 import webpack, { Compiler, Configuration } from "webpack"
 import merge from "webpack-merge"
 import devServer from "webpack-dev-server"
-import { resolve, configs } from "./webpack.config"
+import { resolve, configs, configEnv } from "./webpack.config"
 
 const options: Configuration = merge(configs, {
   mode: "development",
@@ -16,7 +16,9 @@ const options: Configuration = merge(configs, {
     path: resolve("..", "dist/client"),
     filename: "js/[name].js",
     chunkFilename: "js/[id].js",
-    publicPath: "/"
+    publicPath: "/",
+    chunkLoadingGlobal: "lh-host",
+    globalObject: "window"
   },
   module: {
     rules: [
@@ -76,22 +78,15 @@ const options: Configuration = merge(configs, {
 })
 
 const compiler: Compiler = webpack(options)
-const argv = process.argv.slice(2)
-let prefix: string = 'local'
-if (argv.join('&').indexOf('mode=') > -1) {
-  argv.find((value, index) => {
-    prefix = argv[index].replace('mode=', '')
-    return value.indexOf('mode=') > -1
-  })
-}
+const params = configEnv()
 
-import(resolve(`${prefix}.config.ts`)).then(async (res) => {
+import(resolve(`${params.mode || 'local'}.config.ts`)).then(async (res) => {
   const config = (res?.default || {})
   const serve = new devServer({
     host: config.host,
     port: config.port,
     hot: true,
-    open: true,
+    // open: true,
     compress: true,
     historyApiFallback: true,
     client: {

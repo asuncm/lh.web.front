@@ -1,28 +1,23 @@
-import MicroApp from '@micro-zoe/micro-app'
 import { FC, StrictMode, useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 import { BrowserRouter as Router } from 'react-router-dom'
 import RootRouter from './root.router'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient()
 const App: FC = () => {
-
+    const win: any = window
     useEffect(() => {
-        MicroApp.start({
-            ssr: true
-        })
+        const html = document.documentElement;
+        html.style.fontSize = `${(html.clientWidth / 1920).toFixed(5)}px`
     }, [])
-
     return (<StrictMode>
         <QueryClientProvider client={queryClient}>
             <RecoilRoot>
-                <Router basename='/'>
+                <Router basename={win.__MICRO_APP_BASE_URL__ || '/'}>
                     <RootRouter />
                 </Router>
             </RecoilRoot>
-            <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider >
     </StrictMode>)
 }

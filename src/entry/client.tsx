@@ -1,8 +1,8 @@
 
-import { createRoot, Root } from 'react-dom/client'
+import { createRoot, Root, } from 'react-dom/client'
 import App from '../entry/main'
-import '../style/reset.css'
+import '@style/reset.css'
 const dom: any = document.getElementById('root')
 
 const app: Root = createRoot(dom)
-app.render(<App />)
+    app.render(<App />)
