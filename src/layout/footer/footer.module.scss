@@ -5,3 +5,10 @@
     font-size: 13rem;
     text-align: center;
 }
+
+.beian {
+    color: $dawn;
+    &:hover, &:active {
+        text-decoration: none;
+    }
+}

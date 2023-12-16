@@ -3,7 +3,7 @@ import { FC, Suspense, lazy, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { Routes, Route, Location, useLocation, useNavigate, NavigateFunction } from 'react-router-dom'
 
-import { RootProivder, RootState } from '@hook/root/atom'
+import { RootProivder, RootState, ConditionProivder, ConditionState } from '@hook/root/atom'
 import { LocaleData } from 'typings/module/local'
 import dayjs from 'dayjs'
 import zhCN from 'antd/locale/zh_CN'
@@ -31,6 +31,7 @@ const RootRouter: FC = () => {
     const route: Location = useLocation()
     const history: NavigateFunction = useNavigate()
     const [state, setState] = useRecoilState<RootState>(RootProivder)
+    const [condition, setCondition] = useRecoilState<ConditionState>(ConditionProivder)
     useEffect(() => {
         if (route.pathname === '/') {
             history({ pathname: '/home' })
@@ -39,6 +40,10 @@ const RootRouter: FC = () => {
         win.microApp.addGlobalDataListener(dataListener)
         return () => {
             win.microApp.removeGlobalDataListener(dataListener)
+            setCondition({
+                ...setCondition,
+                loading: false
+            })
         }
     }, [])
     useEffect(() => {
@@ -48,6 +53,7 @@ const RootRouter: FC = () => {
         setState(data)
     }
     return (<ConfigProvider locale={config[state.locale]}>
+        { condition.loading ? <Loading /> : null }
         <Routes>
             <Route path='/*'>
                 <Route path='home' element={<Suspense fallback={<Loading />}>

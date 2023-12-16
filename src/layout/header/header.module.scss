@@ -1,7 +1,68 @@
-@import '../../style/page.scss';
+@import '~@style/page.scss';
 
 .header {
-    height: 80px;
+    height: 100rem;
     border-bottom: 1px solid rgb(247, 244, 237, 0.35);
     padding-inline: 100rem;
+}
+
+.logo {
+    
+    &_text {
+        font-size: 48rem;
+        color: $dawn;
+    }
+    & > span {
+        display: inline-block;
+        margin-inline: 12rem;
+        width: 16rem;
+        height: 16rem;
+        border-radius: 50%;
+        background-color: $dawn;
+    }
+    & > img {
+        width: 100rem;
+    }
+}
+.en {
+    & > span {
+        display: none;
+    }
+    & > img {
+        width: 160rem;
+    }
+}
+
+.locale {
+    cursor: pointer;
+    &_col {
+        color: $dawn;
+        font-size: 20rem;
+    }
+}
+
+.menu {
+    li {
+        line-height: 100rem;
+        &:hover {
+            span {
+                color: $dawn;
+            }
+        }
+        span {
+            font-size: 24rem;
+        }
+    }
+    :global(.ant-menu-item-selected) {
+        color: $dawn !important;
+        &::after {
+            border-bottom-color: $dawn !important;
+        }
+    }
+    :global(.ant-menu-item-active) {
+        color: $dawn !important;
+        &::after {
+            border-bottom-color: $dawn !important;
+        }
+    }
 }

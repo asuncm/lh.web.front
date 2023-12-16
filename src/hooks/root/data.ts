@@ -1,7 +1,8 @@
+import type {MenuProps} from 'antd'
 export interface LocaleProps {
     key: string
     label: string
-    value: string
+    value?: string
 }
 
 export const LocaleData: Array<LocaleProps> = [
@@ -19,5 +20,28 @@ export const LocaleData: Array<LocaleProps> = [
         key: 'en',
         label: 'English',
         value: 'en'
+    }
+]
+
+export const MenuData: MenuProps["items"] = [
+    {
+        key: '/home',
+        label: '琅寰'
+    },
+    {
+        key: '/scheme',
+        label: '技术方案'
+    },
+    {
+        key: '/shop',
+        label: '公司商品'
+    },
+    {
+        key: '/demand',
+        label: '需求中心'
+    },
+    {
+        key: '/about',
+        label: '关于我们'
     }
 ]
