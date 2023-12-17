@@ -3,7 +3,6 @@ import {atom} from 'recoil'
 export interface RootState {
     locale: string
     localeText?: string
-    loading?: boolean
 }
 
 export interface ConditionState {

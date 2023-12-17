@@ -26,22 +26,22 @@ export const LocaleData: Array<LocaleProps> = [
 export const MenuData: MenuProps["items"] = [
     {
         key: '/home',
-        label: '琅寰'
+        label: 'home'
     },
     {
         key: '/scheme',
-        label: '技术方案'
+        label: 'scheme'
     },
     {
         key: '/shop',
-        label: '公司商品'
+        label: 'shop'
     },
     {
         key: '/demand',
-        label: '需求中心'
+        label: 'demand'
     },
     {
         key: '/about',
-        label: '关于我们'
+        label: 'about'
     }
 ]

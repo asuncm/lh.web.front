@@ -7,10 +7,17 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 const queryClient = new QueryClient()
 const App: FC = () => {
     const win: any = window
+    let timeout: NodeJS.Timeout | number = 0
     useEffect(() => {
-        const html = document.documentElement;
-        html.style.fontSize = `${(html.clientWidth / 1920).toFixed(5)}px`
+        win.addEventListener('resize', resize)
+        return () => win.removeEventListener('resize', resize)
     }, [])
+    const resize = () => {
+        timeout = setTimeout(() => {
+            const html = document.documentElement;
+            html.style.fontSize = `${(html.clientWidth / 1920).toFixed(5)}px`
+        }, 1000)
+    }
     return (<StrictMode>
         <QueryClientProvider client={queryClient}>
             <RecoilRoot>

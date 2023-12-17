@@ -10,7 +10,7 @@ const Locale: FC = () => {
     const [state] = useRecoilState<RootState>(RootProivder)
     const [condition, setCondition] = useRecoilState<ConditionState>(ConditionProivder)
     const win: any = window
-    let timeout: any = null
+    let timeout: NodeJS.Timeout|number = 0
     useEffect(() => {
         return () => {
             closeLoading()

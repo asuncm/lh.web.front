@@ -6,3 +6,7 @@ export interface UrlProps {
 export interface LocaleData {
   [key: string]: Locale
 }
+
+export interface IProps {
+  [key: string]: string
+}
