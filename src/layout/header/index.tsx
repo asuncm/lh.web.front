@@ -1,26 +1,25 @@
 import { Flex, Menu } from 'antd'
-import { FC, useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
+import type {MenuProps} from 'antd'
+import { FC, useState } from 'react'
 import { NavigateFunction, useLocation, useNavigate, Location } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { MenuData } from '@hook/root/data'
 import Locale from './locale'
 import Logo from './logo'
 import style from './header.module.scss'
-import { ItemType } from 'antd/es/menu/hooks/useItems'
-import { RootProivder, RootState } from '@/hooks/root/atom'
-import { IProps } from 'typings/module/local'
 
 const Header: FC = () => {
     const location: Location = useLocation()
     const history: NavigateFunction = useNavigate()
     const [current] = useState<string>(location.pathname)
-    const [state, setState] = useState<IProps>({})
-    const [root] = useRecoilState<RootState>(RootProivder)
-    useEffect(() => {
-        import(`@/locale/${root.locale}/root`).then((res) => {
-            setState(res)
-        })
-    }, [root])
+    const {t} = useTranslation('translation', {keyPrefix: 'root'})
+    const menuList: MenuProps['items'] = MenuData?.map(item => {
+        const {label, key}: any = item
+        return {
+            key,
+            label: t(label)
+        }
+    })
     return (<Flex vertical={false} className={style.header} justify='space-between' align='center'>
         <Logo />
         <Menu
@@ -32,17 +31,9 @@ const Header: FC = () => {
                 paddingInlineEnd: '150rem'
             }}
             mode="horizontal"
-            selectedKeys={[current]} 
-            onClick={(e) => history({pathname: e.key})}>
-                {
-                    MenuData?.map((item: ItemType) => {
-                        const {label}: any = item
-                        return(<Menu.Item key={item?.key}>
-                            {state[label]}
-                        </Menu.Item>)
-                    })
-                }
-            </Menu>
+            selectedKeys={[current]}
+            items={menuList}
+            onClick={(e) => history({ pathname: e.key })} />
         <Locale />
     </Flex>)
 }

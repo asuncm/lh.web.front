@@ -5,18 +5,22 @@
         transform: rotate(72deg);
         border-color: $dawn;
     }
+
     25% {
         transform: rotate(144deg);
         border-color: $sallow;
     }
+
     50% {
         transform: rotate(216deg);
         border-color: $indigo;
     }
+
     75% {
         transform: rotate(288deg);
         border-color: $sallow;
     }
+
     100% {
         transform: rotate(360deg);
         border-color: $dawn;
@@ -27,15 +31,19 @@
     0% {
         color: $dawn;
     }
+
     25% {
         color: $sallow;
     }
+
     50% {
         color: $indigo;
     }
+
     75% {
         color: $sallow;
     }
+
     100% {
         color: $dawn;
     }
@@ -46,15 +54,23 @@
         color: $dawn;
         text-shadow: 0 1rem 6rem rgba(247, 244, 237, 0.65);
     }
-    50% {
+
+    33% {
         color: $indigo;
         text-shadow: 0 1rem 6rem rgba(22, 97, 171, 0.65);
     }
-    100% {
+
+    66% {
         color: $sallow;
         text-shadow: 0 1rem 6rem rgba(128, 99, 50, 0.65);
     }
+
+    100% {
+        color: $dawn;
+        text-shadow: 0 1rem 6rem rgba(247, 244, 237, 0.65);
+    }
 }
+
 .banner {
     width: 1400rem;
     height: 500rem;
@@ -69,6 +85,7 @@
         width: 200rem;
         height: 200rem;
         font-size: 32rem;
+
         &>span {
             position: absolute;
             z-index: 10;
@@ -94,6 +111,7 @@
         top: 45rem;
         left: 0rem;
         animation: rotateText 5s 0.1s infinite;
+
         &::before {
             @extend .banner_af;
         }
@@ -106,6 +124,7 @@
         z-index: 2;
         font-size: 24rem;
         animation: rotateText 5s 0s infinite;
+
         &::before {
             @extend .banner_af;
             width: 80%;
@@ -125,6 +144,7 @@
             box-shadow: 2rem 1rem 8rem rgba(247, 244, 237, 0.75);
         }
     }
+
     &_rem {
         font-size: 48rem;
         position: absolute;
@@ -132,6 +152,7 @@
         white-space: nowrap;
         animation: desText 8s 0s infinite;
     }
+
     &_b {
         top: 235rem;
         left: 55rem;

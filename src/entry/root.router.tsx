@@ -2,6 +2,7 @@ import { ConfigProvider } from 'antd'
 import { FC, Suspense, lazy, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { Routes, Route, Location, useLocation, useNavigate, NavigateFunction } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import { RootProivder, RootState, ConditionProivder, ConditionState } from '@hook/root/atom'
 import { LocaleData } from 'typings/module/local'
@@ -24,14 +25,15 @@ import 'dayjs/locale/en'
 const RootRouter: FC = () => {
     const win: any = window
     const config: LocaleData = {
-        'zh-cn': zhCN,
+        'zh-CN': zhCN,
         'en': enUS,
-        'zh-hk': zhHK
+        'zh-HK': zhHK
     }
     const route: Location = useLocation()
     const history: NavigateFunction = useNavigate()
     const [state, setState] = useRecoilState<RootState>(RootProivder)
     const [condition, setCondition] = useRecoilState<ConditionState>(ConditionProivder)
+    const [_, i18n] = useTranslation()
     useEffect(() => {
         if (route.pathname === '/') {
             history({ pathname: '/home' })
@@ -48,6 +50,7 @@ const RootRouter: FC = () => {
     }, [])
     useEffect(() => {
         dayjs(state.locale)
+        i18n.changeLanguage(state.locale)
     }, [state])
     const dataListener = (data: RootState) => {
         setState(data)

@@ -1,26 +1,20 @@
 import { Layout } from 'antd'
-import { FC, lazy, useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
-import { RootProivder, RootState } from '@/hooks/root/atom'
+import { FC, lazy } from 'react'
 const Header = lazy(() => import('@/layout/header'))
 const Footer = lazy(() => import('@/layout/footer'))
 
 import style from './home.module.scss'
 import Banner from './component/banner'
 import { IProps } from 'typings/module/local'
+import { useRecoilValue } from 'recoil'
+import { RootProivder, RootState } from '@hook/root/atom'
 
 export interface IState extends IProps {
     [key: string]: any
 }
 
 const HomeComponent: FC = () => {
-    const [state, setState] = useState<IState>({})
-    const [root] = useRecoilState<RootState>(RootProivder)
-    useEffect(() => {
-        import(`@/locale/${root.locale}/home`).then((res) => {
-            setState({...res, locale: root.locale})
-        })
-    }, [root])
+    const state = useRecoilValue<RootState>(RootProivder)
     return(<Layout className={style.bg}>
         <Header />
         <Banner {...state} />

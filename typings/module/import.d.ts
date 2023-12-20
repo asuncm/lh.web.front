@@ -8,4 +8,12 @@ declare module '*.module.sass' {
     export default className
 }
 
+declare module '*.json' {
+    const className: {readonly [key: string]: string}
+    export default className
+}
+
 declare module '*.png'
+declare module '*.jpg'
+declare module '*.jpeg'
+declare module '*.gif'
