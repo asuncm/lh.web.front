@@ -70,6 +70,9 @@ const options: Configuration = merge(configs, {
       }
     ]
   },
+  optimization: {
+    runtimeChunk: 'single'
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.mode': JSON.stringify('csr')
@@ -77,11 +80,16 @@ const options: Configuration = merge(configs, {
   ]
 })
 
-const compiler: Compiler = webpack(options)
+
 const params = configEnv()
 
 import(resolve(`${params.mode || 'local'}.config.ts`)).then(async (res) => {
   const config = (res?.default || {})
+  options.output = {
+    ...options.output,
+    publicPath: `http://${config.host}:${config.port}/`
+  }
+  const compiler: Compiler = webpack(options)
   const serve = new devServer({
     host: config.host,
     port: config.port,
@@ -99,7 +107,6 @@ import(resolve(`${params.mode || 'local'}.config.ts`)).then(async (res) => {
       "Access-Control-Allow-Origin": "*"
     }
   }, compiler)
-
   serve.startCallback((err) => {
     console.log(err, '错误日志')
     console.log('本地访问服务地址：', `http://${config.host}:${config.port}`)

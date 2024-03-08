@@ -8,5 +8,5 @@ export interface LocaleData {
 }
 
 export interface IProps {
-  [key: string]: string
+  [key: string]: any
 }

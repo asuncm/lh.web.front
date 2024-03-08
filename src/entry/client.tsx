@@ -5,4 +5,4 @@ import '@style/reset.css'
 const dom: any = document.getElementById('root')
 
 const app: Root = createRoot(dom)
-    app.render(<App />)
+app.render(<App />)

@@ -1,0 +1,309 @@
+@import "~@style/page.scss";
+
+@keyframes rotate {
+    0% {
+        transform: rotate(72deg);
+        border-color: $dawn;
+    }
+
+    25% {
+        transform: rotate(144deg);
+        border-color: $sallow;
+    }
+
+    50% {
+        transform: rotate(216deg);
+        border-color: $indigo;
+    }
+
+    75% {
+        transform: rotate(288deg);
+        border-color: $sallow;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        border-color: $dawn;
+    }
+}
+
+@keyframes rotateText {
+    0% {
+        color: $dawn;
+    }
+
+    25% {
+        color: $sallow;
+    }
+
+    50% {
+        color: $indigo;
+    }
+
+    75% {
+        color: $sallow;
+    }
+
+    100% {
+        color: $dawn;
+    }
+}
+
+@keyframes desText {
+    0% {
+        color: $dawn;
+        text-shadow: 0 1rem 6rem rgba(247, 244, 237, 0.65);
+    }
+
+    33% {
+        color: $indigo;
+        text-shadow: 0 1rem 6rem rgba(22, 97, 171, 0.65);
+    }
+
+    66% {
+        color: $sallow;
+        text-shadow: 0 1rem 6rem rgba(128, 99, 50, 0.65);
+    }
+
+    100% {
+        color: $dawn;
+        text-shadow: 0 1rem 6rem rgba(247, 244, 237, 0.65);
+    }
+}
+
+.banner {
+    width: 1400rem;
+    height: 500rem;
+
+    &_list {
+        flex: 1;
+    }
+
+    &_pub {
+        position: absolute;
+        @include flex();
+        width: 200rem;
+        height: 200rem;
+        font-size: 32rem;
+
+        &>span {
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &_af {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(247, 244, 237, 0.05);
+        box-shadow: 1rem 1rem 12rem rgba(247, 244, 237, 0.95);
+        animation: rotate 3s infinite;
+    }
+
+    &_name {
+        @extend .banner_pub;
+        top: 45rem;
+        left: 0rem;
+        animation: rotateText 5s 0.1s infinite;
+
+        &::before {
+            @extend .banner_af;
+        }
+    }
+
+    &_link {
+        @extend .banner_pub;
+        top: 165rem;
+        left: 115rem;
+        z-index: 2;
+        font-size: 24rem;
+        animation: rotateText 5s 0s infinite;
+
+        &::before {
+            @extend .banner_af;
+            width: 80%;
+            height: 80%;
+            box-shadow: 0 3rem 8rem rgba(247, 244, 237, 0.75);
+        }
+    }
+
+    &_des {
+        @extend .banner_pub;
+        top: 145rem;
+        left: 285rem;
+        animation: rotateText 5s 0.5s infinite;
+
+        &::before {
+            @extend .banner_af;
+            box-shadow: 2rem 1rem 8rem rgba(247, 244, 237, 0.75);
+        }
+    }
+
+    &_rem {
+        font-size: 48rem;
+        position: absolute;
+        top: 110rem;
+        white-space: nowrap;
+        animation: desText 8s 0s infinite;
+    }
+
+    &_b {
+        top: 235rem;
+        left: 55rem;
+    }
+}
+
+.en {
+    white-space: initial;
+    width: 850rem;
+    font-size: 42rem;
+}
+
+.afflatus {
+    padding-block: 48rem;
+    &_h3 {
+        font-size: 48rem;
+    }
+    &_h6 {
+        width: 1400rem;
+        font-size: 20rem;
+        padding-block-start: 15rem;
+    }
+    &_form {
+        width: 1400rem;
+        padding-block: 48rem;
+    }
+    &_canvas {
+        width: 700rem;
+        height: 750rem;
+        position: relative;
+    }
+    &_box {
+        background-color: rgba(255, 255, 255, 0.12);
+        padding: 30rem 80rem;
+        width: 97.5%;
+        margin-inline-start: 2.5%;
+        border-radius: 8rem;
+    }
+}
+
+.form {
+    width: 700rem;
+    padding: 25rem;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 8rem;
+    :global {
+        .ant-form-item {
+            margin-block-end: 0;
+            padding-block-end: 20rem;
+        }
+        .ant-form-item-label label {
+            font-size: 22rem;
+            color: #fff;
+        }
+        .ant-input {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            padding-inline: 15rem;
+            color: #fff;
+            font-size: 18rem;
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.65);
+            }
+        }
+        .ant-input-affix-wrapper {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            .ant-input {
+                background: none;
+            }
+            .ant-input-data-count {
+                bottom: 2rem;
+                right: 10rem;
+                color: rgba(255, 255, 255, 0.65);
+            }
+        }
+        .form_area {
+            .ant-input {
+                height: 350rem !important;
+            }
+        }
+    }
+    &_inp {
+        height: 48rem;
+        font-size: 18rem;
+    }
+    &_area {
+        padding: 15rem 15rem 35rem 15rem;
+        font-size: 16rem;
+    }
+    &_sub {
+        margin-block-start: 12rem;
+        flex: 1;
+        height: 60rem;
+        border-radius: 8rem;
+        background: rgba(255, 255, 255, 0.2);
+        font-size: 18rem;
+        &:hover {
+            background: rgba(255, 255, 255, 0.22) !important;
+        }
+        &:active {
+            background: rgba(255, 255, 255, 0.3) !important;
+        }
+    }
+}
+
+.box {
+    padding-block-start: 48rem;
+    &_sch {
+        padding-block: 80rem;
+    }
+    &_container {
+        width: 1400rem;
+        padding-block-start: 60rem;
+    }
+    &_menu {
+        :global {
+            .ant-menu-item {
+                background-color: none;
+                color: $dawn;
+                text-align: center;
+                &:hover {
+                    color: rgba(255, 255, 255, 0.65) !important;
+                    background: rgba($color: #fff, $alpha: 0.1) !important;
+                }
+                &.ant-menu-item-selected {
+                    color: rgba(255, 255, 255, 0.85) !important;
+                    background: rgba($color: #fff, $alpha: 0.06) !important;
+                }
+            }
+        }
+    }
+}
+
+.scheme {
+    width: 100%;
+    &_list {
+        margin-inline: 16rem;
+        margin-block: 15rem;
+        width: 120rem;
+        height: 120rem;
+        border-radius: 50%;
+        background-color: rgba($color: #fff, $alpha: 0.15);
+        box-shadow: 0 0 12rem rgba($color: #fff, $alpha: 0.15);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+}

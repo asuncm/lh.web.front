@@ -35,10 +35,13 @@ const Locale: FC = () => {
                         ...condition,
                         loading: true
                     })
-                    win.microApp.setGlobalData({
+                    const config = {
+                        type: '数据',
                         locale: e.key,
                         localeText: item?.label
-                    })
+                    }
+                    win.microApp.setGlobalData(config)
+                    win.microApp.dispatch(config)
                     timeout = setTimeout(() => closeLoading(), 500)
                 }
             }}

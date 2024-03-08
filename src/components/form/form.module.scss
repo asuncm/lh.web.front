@@ -1,0 +1,86 @@
+@import "~@style/page.scss";
+
+.form {
+  width: 100%;
+
+  &_btn {
+    margin-block-start: 12rem;
+    flex: 1;
+    height: 60rem;
+    border-radius: 8rem;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 18rem;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.22) !important;
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.3) !important;
+    }
+  }
+
+  :global {
+    .avatar-uploader {
+      gap: 20rem;
+
+      .ant-upload-select {
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 160rem;
+        height: 120rem;
+        border-radius: 8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+
+    .ant-form-item-label {
+      &>label {
+        color: $dawn;
+      }
+    }
+
+    .ant-radio-group {
+      &>label {
+        color: $dawn;
+        padding-block: 4rem;
+      }
+    }
+
+    .ant-form-item-control-input-content {
+      .ant-input {
+        background-color: rgba(255, 255, 255, 0.3);
+        height: 48rem;
+        border: none;
+        padding-inline: 15rem;
+      }
+    }
+
+    .ant-picker.ant-picker-range {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      height: 48rem;
+      border: none;
+
+      .ant-picker-input input[placeholder], .ant-picker-suffix, .ant-picker-range-separator, .ant-picker-separator {
+        color: $dawn;
+      }
+      .ant-picker-input input {
+        &::-webkit-input-placeholder {
+          color: $dawn;
+        }
+        &::-moz-placeholder, &::-ms-input-placeholder, &:-moz-placeholder {
+          color: $dawn;
+        }
+        &::-ms-input-placeholder {
+          color: $dawn;
+        }
+        &:-moz-placeholder {
+          color: $dawn;
+        }
+      }
+    }
+  }
+}

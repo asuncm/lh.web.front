@@ -4,3 +4,10 @@
     background-color: $mulberry !important;
     min-height: 800rem !important;
 }
+
+.box {
+    height: calc(100vh - 101rem);
+    overflow: hidden;
+    overflow-y: overlay;
+    -webkit-overflow-scrolling: touch;
+}

@@ -11,9 +11,9 @@ import style from './header.module.scss'
 const Header: FC = () => {
     const location: Location = useLocation()
     const history: NavigateFunction = useNavigate()
-    const [current] = useState<string>(location.pathname)
+    const [current, setCurrent] = useState<string>(location.pathname)
     const {t} = useTranslation('translation', {keyPrefix: 'root'})
-    const menuList: MenuProps['items'] = MenuData?.map(item => {
+    const MenuList: MenuProps['items'] = MenuData?.map(item => {
         const {label, key}: any = item
         return {
             key,
@@ -32,8 +32,11 @@ const Header: FC = () => {
             }}
             mode="horizontal"
             selectedKeys={[current]}
-            items={menuList}
-            onClick={(e) => history({ pathname: e.key })} />
+            items={MenuList}
+            onClick={(e) => {
+                history({ pathname: e.key })
+                setCurrent(e.key)
+            }}></Menu>
         <Locale />
     </Flex>)
 }
