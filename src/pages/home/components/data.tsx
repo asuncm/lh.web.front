@@ -205,7 +205,33 @@ const userList: CState[] = [
     {
         key: 'cooperation', // 合作目的
         type: 'checkbox',
-        label: 'cooperation'
+        label: 'cooperation',
+        children: [
+            {
+                key: 'create', // 创作
+                label: 'create'
+            },
+            {
+                key: 'ASSETS', // 资源
+                label: 'ASSETS'
+            },
+            {
+                key: 'contacts', // 人脉
+                label: 'contacts'
+            },
+            {
+                key: 'fund', // 资金
+                label: 'fund'
+            },
+            {
+                key: 'TechnicalSupport', // 技术支持
+                label: 'TechnicalSupport'
+            },
+            {
+                key: 'StartABusiness', // 创业
+                label: 'StartABusiness'
+            }
+        ]
     },
     {
         key: 'remark', // 备注
@@ -267,8 +293,8 @@ const family: CState[] = [
 ]
 
 const collective: CState[] = [
-    ...UList,
     ...teams,
+    ...UList,
     ...QList
 ]
 

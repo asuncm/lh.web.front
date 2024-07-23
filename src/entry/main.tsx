@@ -32,8 +32,10 @@ const App: FC = () => {
     }
     const resize = () => {
         const html = document.documentElement;
-        html.style.fontSize = `${(html.clientWidth / 1920).toFixed(5)}px`;
-        setScale((html.clientWidth / 1920).toFixed(5));
+        if (html.clientWidth >= 1440) {
+            html.style.fontSize = `${(html.clientWidth / 1920).toFixed(5)}px`;
+            setScale((html.clientWidth / 1920).toFixed(5));
+        }
     }
     return (<StrictMode>
         <QueryClientProvider client={queryClient}>

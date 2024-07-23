@@ -76,4 +76,10 @@ export default {
     cardfiles: '身份证正反面',
     attachments: '相关资料',
     Qfile: '营业执照',
+    create: '创作',
+    ASSETS: '资源',
+    contacts: '人脉',
+    fund: '资金',
+    TechnicalSupport: '技术支持',
+    StartABusiness: '创业'
 }

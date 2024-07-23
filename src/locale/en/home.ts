@@ -76,4 +76,10 @@ export default {
     cardfiles: 'Front and back of identity card',
     attachments: 'Relevant data',
     Qfile: 'Business license',
+    create: 'create',
+    ASSETS: 'ASSETS',
+    contacts: 'contacts',
+    fund: 'fund',
+    TechnicalSupport: 'Technical support',
+    StartABusiness: 'Start a business'
 }

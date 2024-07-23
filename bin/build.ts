@@ -2,7 +2,6 @@ import webpack, { Compiler, Configuration, DefinePlugin } from "webpack"
 import merge from "webpack-merge"
 import miniCssExtractPlugin from "mini-css-extract-plugin"
 import { resolve, configs } from "./webpack.config"
-import { SourceMap } from "module"
 
 const argv = process.title
 let isMode: boolean = false
@@ -22,7 +21,7 @@ const options: Configuration = merge({
         path: resolve('..', `dist/${isMode ? 'server' : 'client'}`),
         filename: 'js/[name].[contenthash:7].js',
         chunkFilename: 'js/[name].[id].js',
-        publicPath: '/',
+        publicPath: 'http://gw.allkic.cn/',
         chunkLoadingGlobal: "lh-host",
         globalObject: "window"
     },

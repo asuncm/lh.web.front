@@ -76,5 +76,10 @@ export default {
     cardfiles: '身份證正反面',
     attachments: '相關資料',
     Qfile: '營業執照',
-
+    create: '創作',
+    ASSETS: '資源',
+    contacts: '人脈',
+    fund: '資金',
+    TechnicalSupport: '技術支持',
+    StartABusiness: '創業'
 }

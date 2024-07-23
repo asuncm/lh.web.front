@@ -21,7 +21,7 @@ const Connections: FC = () => {
       label: t(label)
     }
   })
-  const [menuKey] = useState<string>('person')
+  const [menuKey, setMenuKey] = useState<string>('person')
   const [options, setOption] = useState<Array<IOption>>([])
   const [model, setModel] = useState<IModel>({})
   const [labelCol, setLabelCol] = useState({
@@ -30,17 +30,17 @@ const Connections: FC = () => {
   })
   useEffect(() => {
     setOption(connections[menuKey])
-  }, [])
+  }, [menuKey])
   useEffect(() => {
     if (state.locale === 'en') {
       setLabelCol({
         span: 6,
-        offset: 1
+        offset: 0
       })
     } else {
       setLabelCol({
-        span: 3,
-        offset: 1
+        span: 4,
+        offset: 0
       })
     }
   }, [state.locale])
@@ -56,7 +56,7 @@ const Connections: FC = () => {
           style={{
             background: "none"
           }}
-          onClick={() => { }}
+          onClick={(e) => setMenuKey(e.key)}
           items={MenuList}></Menu>
       </Flex>
       <Flex className={style.afflatus_box}>

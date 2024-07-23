@@ -49,6 +49,32 @@
       }
     }
 
+    .ant-radio-wrapper-checked {
+      &:hover {
+        .ant-radio-checked .ant-radio-inner {
+          border-color: rgba(255, 255, 255, 0.3);
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+      .ant-radio-checked .ant-radio-inner {
+        border-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    .ant-checkbox-wrapper-checked {
+      &:hover {
+        .ant-checkbox-checked .ant-checkbox-inner {
+          border-color: rgba(255, 255, 255, 0.3);
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+      .ant-checkbox-checked .ant-checkbox-inner {
+        border-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
     .ant-form-item-control-input-content {
       .ant-input {
         background-color: rgba(255, 255, 255, 0.3);
@@ -81,6 +107,9 @@
           color: $dawn;
         }
       }
+    }
+    .ant-checkbox-wrapper-in-form-item {
+      color: $dawn !important;
     }
   }
 }

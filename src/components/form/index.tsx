@@ -67,10 +67,10 @@ const components: any = {
       const [t] = useTranslation('translation', {
         keyPrefix: 'home'
       })
-      return (<Checkbox.Group defaultValue={''} {...props}>
+      return (<Checkbox.Group defaultValue={['']} {...props}>
         {
           props.children.map((item: IOption) => {
-            return (<Radio key={item.key} value={item.key}>{t(item.key)}</Radio>)
+            return (<Checkbox key={item.key} value={item.key}>{t(item.key)}</Checkbox>)
           })
         }
       </Checkbox.Group>)
