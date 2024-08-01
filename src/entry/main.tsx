@@ -32,7 +32,7 @@ const App: FC = () => {
     }
     const resize = () => {
         const html = document.documentElement;
-        if (html.clientWidth >= 1440) {
+        if (html.clientWidth >= 960) {
             html.style.fontSize = `${(html.clientWidth / 1920).toFixed(5)}px`;
             setScale((html.clientWidth / 1920).toFixed(5));
         }

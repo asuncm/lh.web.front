@@ -1,41 +1,29 @@
 export default {
     "technology": {
-        "name": "技術",
-        "link": "就是",
-        "des": "銷售",
-        "explain": "人在江湖飃，哪有不挨刀",
-        "declare": "需求有需要，我就去幹啥"
+        "explain": "幾十年了，我們還是那麼碌碌無爲，至今還是打工人",
+        "declare": "說好的夢想哪，你是怎麼實現的，還是繼續幻想着打工嗎？"
     },
     "design": {
-        "name": "設計",
-        "link": "也是",
-        "des": "銷售",
-        "explain": "畫作的再好，也需要觀衆",
-        "declare": "三尺白絹，賣出纔有價"
+        "explain": "話說千里馬常有，而伯樂不常有，真是這樣嗎",
+        "declare": "沒有伯樂，千里馬照樣日馳千里，有了伯樂它只是坐下騎"
     },
     "finance": {
-        "name": "財務",
-        "link": "也是",
-        "des": "銷售",
-        "explain": "賬算的再好，沒錢也白搭",
-        "declare": "一手好算計，也得能生錢"
+        "explain": "暢想夢想、暢想未來你不一定實現",
+        "declare": "但是擁有相同理想的夥伴們聚集一起，一定可以燃起成功的火花"
     },
     "market": {
-        "name": "銷售",
-        "link": "更是",
-        "des": "銷售",
-        "explain": "兩軍對壘，憑三寸不爛之舌立於不敗之地",
-        "declare": "兵家攻略瞭然於心，知可戰於不可戰"
+        "explain": "來吧，讓我們一起攜手搭建適合自己的舞臺，實現自己的夢想",
+        "declare": "琅寰科技旨在與君同行，共創互贏"
     },
-    "afflatus.title": "既然來了，就留下您的靈感讓我們來創作吧！",
+    "afflatus.title": "共創互贏心願單",
     "form.name": "您的靈感",
     "form.nameStr": "請輸入您的靈感",
     "form.des": "靈感的描述",
     "form.desStr": "請對您的靈感作出描述",
     "form.anonymity": "匿名提交",
     "form.autonym": "實名提交",
-    "connections.title": "有麽有賺錢的門路！",
-    "connections.des": "這裏不一定能給你帶來財富，但是這裏有你不可或缺的資源，琅寰爲你提供所需要的需要；我們的工作就是等待你的需求，根據你的需求提供服務",
+    "connections.title": "共創平臺信息採集",
+    "connections.des": "琅寰科技旨在互贏互利，爲滿足您的需求而努力,共創平臺共創共產",
     "scheme.title": "我們的技術方案",
     "person": "個人創業",
     "family": "家庭創業",

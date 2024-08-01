@@ -2,8 +2,8 @@
 
 .header {
     height: 100rem;
-    border-bottom: 1px solid rgb(247, 244, 237, 0.35);
-    padding-inline: 100rem;
+    border-bottom: 1px solid rgb(255 255 255 / 12%);
+    padding-inline: 50rem;
 }
 
 .logo {
@@ -21,7 +21,7 @@
         background-color: $dawn;
     }
     & > img {
-        width: 100rem;
+        width: 65rem;
     }
 }
 .en {
@@ -50,7 +50,8 @@
             }
         }
         span {
-            font-size: 24rem;
+            font-size: 28rem;
+            color: rgb(247, 244, 237);
         }
     }
     :global(.ant-menu-item-selected) {

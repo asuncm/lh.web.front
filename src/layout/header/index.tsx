@@ -1,5 +1,5 @@
 import { Flex, Menu } from 'antd'
-import type {MenuProps} from 'antd'
+import type { MenuProps } from 'antd'
 import { FC, useState } from 'react'
 import { NavigateFunction, useLocation, useNavigate, Location } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -12,9 +12,9 @@ const Header: FC = () => {
     const location: Location = useLocation()
     const history: NavigateFunction = useNavigate()
     const [current, setCurrent] = useState<string>(location.pathname)
-    const {t} = useTranslation('translation', {keyPrefix: 'root'})
+    const { t } = useTranslation('translation', { keyPrefix: 'root' })
     const MenuList: MenuProps['items'] = MenuData?.map(item => {
-        const {label, key}: any = item
+        const { label, key }: any = item
         return {
             key,
             label: t(label)

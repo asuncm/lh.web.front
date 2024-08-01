@@ -21,7 +21,7 @@ const Afflatus: FC = () => {
         afflatus.current && panda.init(afflatus, scale)
     }, [])
     return (<Flex vertical={true} className={style.afflatus} align='center'>
-        <Flex className={style.afflatus_h3} justify='center'>{t('afflatus.title')}</Flex>
+        <Flex className={`${style.afflatus_h3} ${style.afflatus_hb}`} justify='center'>{t('afflatus.title')}</Flex>
         <Flex className={style.afflatus_form} justify='space-between'>
             <Flex className={`relative ${style.banner_list} ${style.afflatus_canvas}`}>
                 <Image src={Img_1} width="700rem" height="750rem" preview={false} />

@@ -45,8 +45,8 @@ const Connections: FC = () => {
     }
   }, [state.locale])
   return <Flex vertical={true} className={style.box} align='center'>
-    <Flex className={style.afflatus_h3} justify='center'>{t('connections.title')}</Flex>
-    <Flex className={style.afflatus_h6} justify='flex-start'>{t('connections.des')}</Flex>
+    <Flex className={`${style.afflatus_h3} ${style.afflatus_hb}`} justify='center'>{t('connections.title')}</Flex>
+    <Flex className={style.afflatus_h5} justify='center'>{t('connections.des')}</Flex>
     <Flex className={style.box_container} justify='flex-start'>
       <Flex justify='stretch' align='top'>
         <Menu

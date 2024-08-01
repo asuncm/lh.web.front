@@ -16,20 +16,16 @@ const PageRouter: FC = () => {
       <HomeComponent />
     </Suspense>} />
     <Route path='scheme' element={<Suspense fallback={<Loading />}>
-      {/* <SchemeComponent /> */}
-      <HomeComponent />
+      <SchemeComponent />
     </Suspense>} />
     <Route path='shop' element={<Suspense fallback={<Loading />}>
-      {/* <ShopComponent /> */}
-      <HomeComponent />
+      <ShopComponent />
     </Suspense>} />
     <Route path='demand' element={<Suspense fallback={<Loading />}>
-      {/* <DemandComponent /> */}
-      <HomeComponent />
+      <DemandComponent />
     </Suspense>} />
     <Route path='about' element={<Suspense fallback={<Loading />}>
-      {/* <AboutComponent /> */}
-      <HomeComponent />
+      <AboutComponent />
     </Suspense>} />
   </Routes>)
 }

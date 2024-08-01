@@ -1,41 +1,29 @@
 export default {
     "technology": {
-        "name": "RECHNOLOGY",
-        "link": "IS",
-        "des": "MARKET",
-        "explain": "People floating in rivers and lakes, where there is not a knife",
-        "declare": "I do what I need when I need it"
+        "explain": "For decades, we are still so mediocre, still working people",
+        "declare": "How did you achieve your promised dream, or do you continue to fantasize about working?"
     },
     "design": {
-        "name": "DESIGN",
-        "link": "TOO",
-        "des": "MARKET",
-        "explain": "No matter how good a painting is, it needs an audience",
-        "declare": "Three feet of white silk. It's worth it when you sell it"
+        "explain": "The horse is often, but the bole is not often, is this really the case?",
+        "declare": "No bole, the horse still gallops a thousand miles, with bole it just sits and rides."
     },
     "finance": {
-        "name": "FINANCE",
-        "link": "TOO",
-        "des": "MARKET",
-        "explain": "No matter how good the accounting is, no money will help",
-        "declare": "You got to be able to make money with a good plan"
+        "explain": "Imagine the dream, imagine the future you may not realize",
+        "declare": "But the gathering of partners who share the same ideals can surely ignite the spark of success."
     },
     "market": {
-        "name": "MARKET",
-        "link": "MORE",
-        "des": "MARKET",
-        "explain": "Two armies against each other, with three inches of tongue can not be defeated",
-        "declare": "He knows what he can fight and what he can't"
+        "explain": "Come on, let's work together to build a suitable stage for our own, to realize our dreams",
+        "declare": "Luanghuan technology aims to work with you to create mutual win"
     },
-    "afflatus.title": "Now that you're here, leave your inspiration for us to create!",
+    "afflatus.title": "Create a mutual win wish list",
     "form.name": "Your inspiration",
     "form.nameStr": "Please enter your inspiration",
     "form.des": "Description of inspiration",
     "form.desStr": "Please describe your inspiration",
     "form.anonymity": "Anonymous",
     "form.autonym": "Real name",
-    "connections.title": "Is there a way to make money!",
-    "connections.des": "It may not bring you wealth, but there are resources you can't help but need. Our job is to wait for your needs and provide services according to your needs",
+    "connections.title": "Co-create platform information collection",
+    "connections.des": "Luanghuan technology aims to win and benefit each other, to meet your needs and work hard to create a platform to create communism",
     "scheme.title": "Our technical solutions",
     "person": "Individual entrepreneurship",
     "family": "Family entrepreneurship",
